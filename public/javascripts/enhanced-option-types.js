@@ -1,4 +1,5 @@
 function update_variant_images(vid, text) {
+  var link;
   jQuery("#variant-thumbnails").empty();
   if (text) jQuery("#variant-images span").html(text);
 
@@ -8,17 +9,15 @@ function update_variant_images(vid, text) {
     });
 
     jQuery("#variant-images").show();
+    link = jQuery("#variant-thumbnails a")[0];
   } else {
     jQuery("#variant-images").hide();
+    link = jQuery(".thumbnails a")[0];
   }
 
   add_image_handlers();
 
-  var link = jQuery("#variant-thumbnails a")[0];
-
-  jQuery("#main-image img").attr({src: jQuery(link).attr('href')});
-  jQuery('ul.thumbnails li').removeClass('selected');
-  jQuery(link).parent('li').addClass('selected');
+  $(link).click();
 }
 
 
